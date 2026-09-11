@@ -96,12 +96,499 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdr
 body.modal-open{overflow:hidden}
 @media(max-width:900px){.nav-actions .btn-primary{display:none}.nav-actions{margin-left:auto}.utility-btn{padding:9px 10px}.map-embed{min-height:380px}}
 @media(max-width:560px){.brand b{font-size:12px}.brand small{font-size:7px}.nav-actions{gap:5px}.utility-btn{font-size:9px;padding:8px}.modal{padding:10px}.modal-image{height:65vh}.slider-btn{width:42px;height:42px}}
+
+/* ===== Enhanced responsive layout ===== */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.wrap {
+  width: min(1160px, calc(100% - 40px));
+}
+.navlinks {
+  flex-wrap: wrap;
+}
+.hero-grid {
+  min-width: 0;
+}
+.hero-grid > * {
+  min-width: 0;
+}
+.services,
+.split,
+.process-grid,
+.contact-grid,
+.footer-top {
+  min-width: 0;
+}
+.service,
+.process-card,
+.contact-card,
+.footer-contact-item,
+.floating-card {
+  min-width: 0;
+}
+.service h3,
+.process-card h3,
+.contact-card h3,
+.footer-contact h3,
+.about h2 {
+  overflow-wrap: anywhere;
+}
+.contact-links a,
+.footer-contact-item a,
+.footer-contact-item span.fc-text {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .wrap {
+    width: min(100% - 32px, 960px);
+  }
+  nav {
+    gap: 14px;
+  }
+  .brand {
+    flex: 0 1 auto;
+  }
+  .brand b {
+    font-size: 13px;
+  }
+  .navlinks {
+    gap: 14px;
+  }
+  .navlinks a {
+    font-size: 12px;
+  }
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+    gap: 28px;
+  }
+  h1 {
+    font-size: clamp(50px, 8vw, 78px);
+  }
+  .services {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gallery a:first-child {
+    grid-row: span 2;
+  }
+}
+
+/* Mobile navigation/header */
+@media (max-width: 900px) {
+  .topbar .wrap {
+    align-items: center;
+  }
+  header nav {
+    min-height: 68px;
+    height: auto;
+    padding: 10px 0;
+  }
+  .navlinks {
+    display: none;
+  }
+  .nav-actions {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .nav-actions .btn-primary {
+    display: none;
+  }
+  .hero {
+    min-height: auto;
+  }
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 76px 0 64px;
+  }
+  .floating-card {
+    justify-self: stretch;
+    width: 100%;
+  }
+  .split,
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .visual img {
+    height: min(60vw, 420px);
+  }
+  .process-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .section {
+    padding: 72px 0;
+  }
+  .section-head {
+    align-items: flex-start;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .wrap {
+    width: calc(100% - 28px);
+  }
+  .topbar {
+    font-size: 10px;
+    line-height: 1.5;
+    padding: 8px 0;
+  }
+  .topbar .wrap {
+    justify-content: center;
+    text-align: center;
+    gap: 2px 10px;
+  }
+  .topbar .wrap span {
+    max-width: 100%;
+  }
+  header nav {
+    gap: 8px;
+  }
+  .brand {
+    gap: 8px;
+    min-width: 0;
+  }
+  .brand img {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+  }
+  .brand b {
+    display: block;
+    font-size: 11px;
+    letter-spacing: .8px;
+    white-space: nowrap;
+  }
+  .brand small {
+    font-size: 6px;
+    letter-spacing: .9px;
+  }
+  .nav-actions {
+    gap: 4px;
+  }
+  .utility-btn {
+    padding: 8px 9px;
+    font-size: 9px;
+  }
+  .hero-grid {
+    padding: 62px 0 52px;
+    gap: 30px;
+  }
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.4px;
+    line-height: 1.5;
+  }
+  .eyebrow:before {
+    width: 22px;
+    flex: 0 0 22px;
+  }
+  h1,
+  .hero h1 {
+    font-size: clamp(45px, 15vw, 64px);
+    line-height: .9;
+    letter-spacing: .3px;
+  }
+  .hero p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .hero-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .hero-actions .btn {
+    width: 100%;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 38px;
+  }
+  .hero-stat {
+    min-width: 0;
+  }
+  .hero-stat b {
+    font-size: 25px;
+  }
+  .hero-stat span {
+    display: block;
+    font-size: 8px;
+    letter-spacing: .6px;
+    line-height: 1.35;
+  }
+  .floating-card {
+    padding: 20px;
+  }
+  .floating-card h3 {
+    font-size: 28px;
+  }
+  .section {
+    padding: 58px 0;
+  }
+  .section-head {
+    display: block;
+    margin-bottom: 30px;
+  }
+  .section-head h2 {
+    font-size: clamp(38px, 12vw, 52px);
+    margin-top: 8px;
+  }
+  .section-head p {
+    font-size: 13px;
+    margin-top: 18px;
+  }
+  .services,
+  .gallery,
+  .checks {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .service {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+  .service h3 {
+    margin-top: 18px;
+  }
+  .about h2 {
+    font-size: clamp(40px, 12vw, 54px);
+  }
+  .checks {
+    gap: 12px;
+  }
+  .visual img {
+    height: 280px;
+  }
+  .visual:after {
+    inset: 10px;
+  }
+  .process-card {
+    padding: 28px 20px;
+  }
+  .process-card h3 {
+    font-size: 24px;
+  }
+  .process-steps li {
+    padding-left: 34px;
+    font-size: 12px;
+  }
+  .gallery {
+    grid-auto-rows: 240px;
+  }
+  .gallery a:first-child {
+    grid-row: auto;
+  }
+  .history-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .history-imgwrap {
+    height: 260px;
+  }
+  .history-tag {
+    top: 12px;
+    left: 12px;
+    padding: 8px 11px;
+    font-size: 9px;
+  }
+  .history-nav {
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .history-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .contact-card {
+    padding: 28px 20px;
+  }
+  .contact-card h3 {
+    font-size: 30px;
+  }
+  .map-embed {
+    min-height: 300px;
+  }
+  .site-footer {
+    padding: 52px 0 24px;
+  }
+  .footer-top {
+    gap: 34px;
+    padding-bottom: 30px;
+  }
+  .footer-contact h3 {
+    font-size: 34px;
+    margin-bottom: 20px;
+  }
+  .footer-contact-list {
+    gap: 17px;
+  }
+  .footer-contact-item {
+    gap: 11px;
+  }
+  .footer-contact-item .ficon {
+    width: 36px;
+    height: 36px;
+  }
+  .footer-contact-item a,
+  .footer-contact-item span.fc-text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .footer-bottom {
+    display: block;
+    font-size: 10px;
+    line-height: 1.7;
+  }
+  .footer-bottom span {
+    display: block;
+  }
+  .footer-bottom span + span {
+    margin-top: 4px;
+  }
+  .quick {
+    right: 12px;
+    bottom: 14px;
+    width: 48px;
+    height: 48px;
+  }
+  .wa-float {
+    right: 12px;
+    bottom: 70px;
+    width: 48px;
+    height: 48px;
+  }
+  .wa-popup {
+    right: 12px;
+    bottom: 128px;
+    width: min(300px, calc(100% - 24px));
+  }
+  .modal {
+    padding: 8px;
+  }
+  .modal-box {
+    width: 100%;
+  }
+  .modal-image {
+    height: 68vh;
+    max-height: 620px;
+  }
+  .modal-close,
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 21px;
+  }
+  .modal-close {
+    right: 8px;
+    top: 8px;
+  }
+  .slider-prev {
+    left: 8px;
+  }
+  .slider-next {
+    right: 8px;
+  }
+  .slider-count {
+    left: 8px;
+    top: 8px;
+    padding: 6px 9px;
+    font-size: 9px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .wrap {
+    width: calc(100% - 22px);
+  }
+  .brand img {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+  .brand b {
+    font-size: 10px;
+  }
+  .utility-btn {
+    padding: 7px 8px;
+  }
+  .hero-stats {
+    gap: 6px;
+  }
+  .hero-stat b {
+    font-size: 22px;
+  }
+  .hero-stat span {
+    font-size: 7px;
+  }
+  .floating-card {
+    padding: 17px;
+  }
+  .chip {
+    padding: 7px 8px;
+    font-size: 9px;
+  }
+}
+
+/* Landscape phones */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero-grid {
+    padding: 45px 0;
+  }
+  .hero {
+    min-height: auto;
+  }
+  .hero-stats {
+    margin-top: 25px;
+  }
+  .floating-card {
+    display: none;
+  }
+}
+
+/* Accessibility / touch improvements */
+@media (hover: none) {
+  .service:hover,
+  .process-card:hover,
+  .contact-links a:hover,
+  .gallery a:hover img {
+    transform: none;
+  }
+}
+
+
+/* Mobile menu */
+.mobile-menu-btn{display:none;background:transparent;border:1px solid var(--line);color:var(--navy);width:40px;height:40px;border-radius:3px;cursor:pointer;font-size:21px;line-height:1}
+.mobile-menu{display:none;position:fixed;left:0;right:0;top:68px;z-index:98;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:12px 14px;box-shadow:0 15px 35px rgba(11,31,51,.12)}
+.mobile-menu.open{display:grid;gap:4px}
+.mobile-menu a{display:block;padding:14px 12px;text-decoration:none;color:var(--navy);font-size:13px;font-weight:800;border-bottom:1px solid var(--line)}
+.mobile-menu a:last-child{border-bottom:0}
+@media(max-width:900px){
+  .mobile-menu-btn{display:inline-grid;place-items:center}
+}
+
 </style>
 </head>
 <body>
 <div id="loader"><div class="loader-mark"></div></div>
 <div class="topbar"><div class="wrap"><span>Professional A/C Installation & Cleaning Solutions</span><span><a href="tel:+971545253874">+971 54 525 3874</a> &nbsp;•&nbsp; Sharjah, United Arab Emirates</span></div></div>
-<header><nav class="wrap"><a class="brand" href="#home"><img src="assets/logo.png" alt="UFUQ AL FADHA logo"><span><b>UFUQ AL FADHA</b></span></a><div class="navlinks"><a href="#services">Services</a><a href="#about">About</a><a href="#process">Process</a><a href="#projects">Projects</a><a href="#history">History</a><a href="#contact">Contact</a></div><div class="nav-actions"><button class="utility-btn" id="langToggle" type="button">عربي</button><a class="btn btn-primary" href="#contact">GET IN TOUCH</a></div></nav></header>
+<header><nav class="wrap"><a class="brand" href="#home"><img src="assets/logo.png" alt="UFUQ AL FADHA logo"><span><b>UFUQ AL FADHA</b></span></a><div class="navlinks"><a href="#services">Services</a><a href="#about">About</a><a href="#process">Process</a><a href="#projects">Projects</a><a href="#history">History</a><a href="#contact">Contact</a></div><div class="nav-actions"><button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button><button class="utility-btn" id="langToggle" type="button">عربي</button><a class="btn btn-primary" href="#contact">GET IN TOUCH</a></div></nav></header>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#process">Process</a>
+  <a href="#projects">Projects</a>
+  <a href="#history">History</a>
+  <a href="#contact">Contact</a>
+</div>
+
 <main>
 <section class="hero" id="home"><div class="hero-slides"><div class="hero-slide active" style="background-image:url('assets/hero.jpg')"></div><div class="hero-slide" style="background-image:url('assets/hero2.jpg')"></div><div class="hero-slide" style="background-image:url('assets/hero3.jpg')"></div><div class="hero-slide" style="background-image:url('assets/hero4.jpg')"></div><div class="hero-slide" style="background-image:url('assets/hero5.jpg')"></div></div><div class="wrap hero-grid"><div class="reveal"><div class="eyebrow">COOLING SOLUTIONS YOU CAN TRUST</div><h1>BUILT FOR<br><span style="color:var(--teal-light)">BETTER AIR.</span></h1><p>Reliable A/C installation, cleaning and duct maintenance solutions for homes and commercial spaces. Professional workmanship with a focus on clean, efficient results.</p><div class="hero-actions"><a class="btn btn-primary" href="tel:+971545253874">CALL FOR SERVICE ↗</a><a class="btn btn-outline" href="#services">EXPLORE SERVICES</a></div><div class="hero-stats"><div class="hero-stat"><b>07+</b><span>Core Services</span></div><div class="hero-stat"><b>UAE</b><span>Service Area</span></div><div class="hero-stat"><b>24/7</b><span>Quick Response</span></div></div></div><aside class="floating-card reveal"><div class="mini-title">OUR SPECIALITY</div><h3>Clean Air. Better Comfort.</h3><p>From A/C ducts and coils to tanks and ventilation systems, we help maintain cleaner and more efficient spaces.</p><span class="chip">A/C DUCT CLEANING</span><span class="chip">HVAC</span><span class="chip">FAHU & FCU</span></aside></div></section>
 <section class="section" id="services"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">WHAT WE DO</div><h2>Our Services</h2></div><p>Comprehensive cleaning and contracting solutions designed to support better airflow, cleaner systems and comfortable spaces.</p></div><div class="services">
