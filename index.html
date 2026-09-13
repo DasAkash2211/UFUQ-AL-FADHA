@@ -32,20 +32,13 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdr
 /* ===== Working History (before/after slideshow) ===== */
 .history-slider{position:relative}
 .history-track{overflow:hidden;border:1px solid var(--line)}
-.history-cards{display:flex;transition:transform .5s ease}
-.history-card{flex:0 0 100%;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--navy)}
+.history-cards{display:flex;flex-direction:column;gap:24px}
+.history-card{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--navy)}
 .history-side{position:relative}
 .history-imgwrap{position:relative;height:440px;overflow:hidden;background:#0a1a2a}
 .history-imgwrap img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .2s ease}
 .history-tag{position:absolute;top:16px;left:16px;z-index:2;background:rgba(8,20,33,.7);backdrop-filter:blur(4px);color:#fff;font:800 11px Manrope;letter-spacing:2px;padding:9px 16px;border-radius:3px}
 .history-after .history-tag{background:var(--teal);color:#0b1f33}
-.history-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:26px}
-.history-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:20px;color:var(--navy);transition:.25s;line-height:0}
-.history-btn:hover{border-color:var(--teal);color:var(--teal)}
-.history-btn:disabled{opacity:.35;cursor:default}
-.history-dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.history-dot{width:9px;height:9px;border-radius:50%;background:var(--line);cursor:pointer;transition:.25s;border:0;padding:0}
-.history-dot.active{background:var(--teal);width:22px;border-radius:5px}
 @media(max-width:700px){.history-card{grid-template-columns:1fr}.history-imgwrap{height:260px}}.gallery a{position:relative;overflow:hidden;display:block;background:#ddd}.gallery a:first-child{grid-row:span 2}.gallery img{width:100%;height:100%;object-fit:cover;transition:.6s}.gallery a:hover img{transform:scale(1.08)}.gallery a:after{content:"VIEW PROJECT ↗";position:absolute;inset:0;background:rgba(8,24,39,.55);display:grid;place-items:center;color:#fff;font-size:11px;letter-spacing:1.5px;font-weight:800;opacity:0;transition:.3s}.gallery a:hover:after{opacity:1}
 .contact{background:#fff}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.contact-card{padding:40px;background:var(--light);border:1px solid var(--line)}.contact-card h3{font:700 36px Rajdhani;margin:0 0 20px}.contact-card p{color:var(--muted);line-height:1.8;font-size:14px}.contact-links{display:grid;gap:12px;margin-top:25px}.contact-links a{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;background:#fff;padding:17px;text-decoration:none;color:var(--navy);font-size:13px;font-weight:700;border:1px solid var(--line);transition:.25s}.contact-links a span:first-child{min-width:0;overflow-wrap:break-word;word-break:break-word}.contact-links a:hover{border-color:var(--teal);transform:translateX(4px)}.map-card{min-height:430px;position:relative;overflow:hidden;background:linear-gradient(135deg,#0c2438,#163e5d);display:flex;align-items:flex-end;padding:36px;color:#fff}.map-card:before{content:"";position:absolute;inset:0;background:url('assets/map-bg.jpg') center/cover;opacity:.3}.map-card>*{position:relative}.map-card h3{font:700 50px Rajdhani;margin:0 0 8px}.map-card p{color:#d5e0e8;max-width:400px;line-height:1.7}
 
@@ -398,14 +391,6 @@ html, body {
     padding: 8px 11px;
     font-size: 9px;
   }
-  .history-nav {
-    gap: 10px;
-    margin-top: 18px;
-  }
-  .history-btn {
-    width: 40px;
-    height: 40px;
-  }
   .contact-card {
     padding: 28px 20px;
   }
@@ -660,11 +645,6 @@ html, body {
       </div>
     </div>
   </div>
-  <div class="history-nav">
-    <button class="history-btn" id="historyPrev" type="button" aria-label="Previous">‹</button>
-    <div class="history-dots" id="historyDots"></div>
-    <button class="history-btn" id="historyNext" type="button" aria-label="Next">›</button>
-  </div>
 </div>
 </div></section>
 <section class="section contact" id="contact"><div class="wrap contact-grid"><div class="contact-card reveal"><div class="kicker">LET'S TALK</div><h3>Need A/C or Duct Service?</h3><p>Reach out directly and our team can help you with your service requirement.</p><div class="contact-links"><a href="tel:+971545253874"><span>+971 54 525 3874</span><span>CALL ↗</span></a><a href="mailto:help@ufuqalfadha.com"><span>help@ufuqalfadha.com</span><span>EMAIL ↗</span></a><a href="https://google.com/maps?q=25.32405662536621,55.37900924682617&z=17&hl=en" target="_blank" rel="noopener"><span>Sharjah, United Arab Emirates</span><span>MAP ↗</span></a></div></div><div class="reveal"><iframe class="map-embed" title="UFUQ AL FADHA location" loading="lazy" allowfullscreen src="https://www.google.com/maps?q=25.32405662536621,55.37900924682617&z=17&hl=en&output=embed"></iframe></div></div></section>
@@ -737,12 +717,8 @@ const translations={"Professional A/C Installation & Cleaning Solutions": "حل�
 const langToggle=document.getElementById("langToggle");if(langToggle)langToggle.addEventListener("click",()=>{arabic=!arabic;translatePage()});
 const images=["assets/project1.jpg","assets/project2.jpg","assets/project3.jpg","assets/project4.jpg","assets/project5.jpg","assets/project6.jpg","assets/project7.jpg","assets/project8.jpg","assets/project9.jpg","assets/project10.jpg","assets/project11.jpg","assets/project12.jpg","assets/project13.jpg","assets/project14.jpg","assets/project15.jpg","assets/project16.jpg","assets/project17.jpg","assets/project18.jpg","assets/project19.jpg","assets/project20.jpg","assets/project21.jpg","assets/project22.jpg","assets/project23.jpg","assets/project24.jpg","assets/project25.jpg","assets/project26.jpg","assets/project27.jpg","assets/project28.jpg","assets/project29.jpg","assets/project30.jpg","assets/project31.jpg","assets/project32.jpg","assets/project33.jpg","assets/project34.jpg","assets/project35.jpg","assets/project36.jpg","assets/project37.jpg","assets/project38.jpg","assets/project39.jpg","assets/project40.jpg","assets/project41.jpg","assets/project42.jpg","assets/project43.jpg","assets/project44.jpg","assets/project45.jpg","assets/project46.jpg","assets/project47.jpg","assets/project48.jpg","assets/project49.jpg","assets/project50.jpg","assets/project51.jpg","assets/project52.jpg","assets/project53.jpg","assets/project54.jpg","assets/project55.jpg","assets/project56.jpg","assets/project57.jpg","assets/project58.jpg","assets/project59.jpg","assets/project60.jpg","assets/project61.jpg","assets/project62.jpg","assets/project63.jpg","assets/project64.jpg","assets/project65.jpg","assets/project66.jpg","assets/project67.jpg","assets/project68.jpg","assets/project69.jpg","assets/project70.jpg","assets/project71.jpg","assets/project72.jpg","assets/project73.jpg","assets/project74.jpg","assets/project75.jpg","assets/project76.jpg","assets/project77.jpg","assets/project78.jpg","assets/project79.jpg","assets/project80.jpg","assets/project81.jpg","assets/project82.jpg","assets/project83.jpg","assets/project84.jpg","assets/project85.jpg","assets/project86.jpg","assets/project87.jpg","assets/project88.jpg","assets/project89.jpg","assets/project90.jpg","assets/project91.jpg","assets/project92.jpg","assets/project93.jpg","assets/project94.jpg","assets/project95.jpg","assets/project96.jpg","assets/project97.jpg","assets/project98.jpg","assets/project99.jpg","assets/project100.jpg","assets/project101.jpg","assets/project102.jpg","assets/project103.jpg","assets/project104.jpg","assets/project105.jpg","assets/project106.jpg","assets/project107.jpg","assets/project108.jpg","assets/project109.jpg","assets/project110.jpg","assets/project111.jpg","assets/project112.jpg"];const captions=["A/C COIL DEEP CLEAN","DUCT INTERIOR CLEANING","GRILLE & VENT PANEL SERVICE","ROOFTOP UNIT SERVICING","TECHNICIAN AT WORK","WATER TANK / FAHU CLEANING","CEILING DUCT MAINTENANCE","COIL PRESSURE WASH","A/C GRILLE DEEP CLEAN","ROOFTOP COIL CLEANING","A/C COIL DEEP CLEAN","DUCT INTERIOR CLEANING","GRILLE & VENT PANEL SERVICE","ROOFTOP UNIT SERVICING","TECHNICIAN AT WORK","WATER TANK / FAHU CLEANING","CEILING DUCT MAINTENANCE","COIL PRESSURE WASH","A/C GRILLE DEEP CLEAN","ROOFTOP COIL CLEANING","A/C COIL DEEP CLEAN","DUCT INTERIOR CLEANING","GRILLE & VENT PANEL SERVICE","ROOFTOP UNIT SERVICING","TECHNICIAN AT WORK","WATER TANK / FAHU CLEANING","CEILING DUCT MAINTENANCE","COIL PRESSURE WASH","A/C GRILLE DEEP CLEAN","ROOFTOP COIL CLEANING","A/C COIL DEEP CLEAN","DUCT INTERIOR CLEANING","GRILLE & VENT PANEL SERVICE","ROOFTOP UNIT SERVICING","TECHNICIAN AT WORK","WATER TANK / FAHU CLEANING","CEILING DUCT MAINTENANCE","COIL PRESSURE WASH","A/C GRILLE DEEP CLEAN","ROOFTOP COIL CLEANING","A/C COIL DEEP CLEAN","DUCT INTERIOR CLEANING","GRILLE & VENT PANEL SERVICE","ROOFTOP UNIT SERVICING","TECHNICIAN AT WORK","WATER TANK / FAHU CLEANING","CEILING DUCT MAINTENANCE","COIL PRESSURE WASH","A/C GRILLE DEEP CLEAN","ROOFTOP COIL CLEANING","A/C COIL DEEP CLEAN","DUCT INTERIOR CLEANING","GRILLE & VENT PANEL SERVICE","ROOFTOP UNIT SERVICING","TECHNICIAN AT WORK","WATER TANK / FAHU CLEANING","CEILING DUCT MAINTENANCE","COIL PRESSURE WASH","A/C GRILLE DEEP CLEAN","ROOFTOP COIL CLEANING","A/C COIL DEEP CLEAN","DUCT INTERIOR CLEANING","GRILLE & VENT PANEL SERVICE","ROOFTOP UNIT SERVICING","TECHNICIAN AT WORK","WATER TANK / FAHU CLEANING","CEILING DUCT MAINTENANCE","COIL PRESSURE WASH","A/C GRILLE DEEP CLEAN","ROOFTOP COIL CLEANING","A/C COIL DEEP CLEAN","DUCT INTERIOR CLEANING","GRILLE & VENT PANEL SERVICE","ROOFTOP UNIT SERVICING","TECHNICIAN AT WORK","WATER TANK / FAHU CLEANING","CEILING DUCT MAINTENANCE","COIL PRESSURE WASH","A/C GRILLE DEEP CLEAN","ROOFTOP COIL CLEANING","A/C COIL DEEP CLEAN","DUCT INTERIOR CLEANING","GRILLE & VENT PANEL SERVICE","ROOFTOP UNIT SERVICING","TECHNICIAN AT WORK","WATER TANK / FAHU CLEANING","CEILING DUCT MAINTENANCE","COIL PRESSURE WASH","A/C GRILLE DEEP CLEAN","ROOFTOP COIL CLEANING","A/C COIL DEEP CLEAN","DUCT INTERIOR CLEANING"];let current=0;const modal=document.getElementById("projectModal"),modalImage=document.getElementById("modalImage"),sliderCount=document.getElementById("sliderCount"),modalCaption=document.getElementById("modalCaption");function renderSlide(){if(modalImage){modalImage.src=images[current];modalImage.alt="UFUQ AL FADHA project "+(current+1)}if(sliderCount)sliderCount.textContent=(current+1)+" / "+images.length;if(modalCaption)modalCaption.textContent=captions[current]||("PROJECT "+String(current+1).padStart(2,"0"))}function openModal(i=0){current=((i%images.length)+images.length)%images.length;renderSlide();if(modal){modal.classList.add("show");modal.setAttribute("aria-hidden","false");document.body.classList.add("modal-open")}}function closeModal(){if(modal){modal.classList.remove("show");modal.setAttribute("aria-hidden","true");document.body.classList.remove("modal-open")}}const more=document.getElementById("viewMoreBtn");if(more)more.addEventListener("click",()=>openModal(5));document.querySelectorAll("#projectGallery a").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();openModal(Number(a.dataset.slide)||0)}));const close=document.getElementById("modalClose"),prev=document.getElementById("sliderPrev"),next=document.getElementById("sliderNext");if(close)close.addEventListener("click",closeModal);if(prev)prev.addEventListener("click",()=>{current=(current-1+images.length)%images.length;renderSlide()});if(next)next.addEventListener("click",()=>{current=(current+1)%images.length;renderSlide()});if(modal)modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});document.addEventListener("keydown",e=>{if(!modal||!modal.classList.contains("show"))return;if(e.key==="Escape")closeModal();if(e.key==="ArrowLeft"&&prev)prev.click();if(e.key==="ArrowRight"&&next)next.click()});
 (function(){
-const cardsWrap=document.getElementById("historyCards");
 const cards=Array.from(document.querySelectorAll(".history-card"));
-if(!cardsWrap||!cards.length)return;
-const prevBtn=document.getElementById("historyPrev"),nextBtn=document.getElementById("historyNext"),dotsWrap=document.getElementById("historyDots");
-const totalCards=cards.length;
-let cardIndex=0;
+if(!cards.length)return;
 let subIndex=0;
 const cardData=cards.map(card=>{
   const beforeImg=card.querySelector(".history-before .history-img"),afterImg=card.querySelector(".history-after .history-img");
@@ -751,22 +727,6 @@ const cardData=cards.map(card=>{
   return{beforeImg,afterImg,beforeList,afterList};
 });
 const subTotal=Math.max.apply(null,cardData.map(c=>Math.min(c.beforeList.length,c.afterList.length)||1));
-function renderDots(){
-  if(!dotsWrap)return;
-  dotsWrap.innerHTML="";
-  for(let i=0;i<totalCards;i++){
-    const dot=document.createElement("button");
-    dot.type="button";
-    dot.className="history-dot"+(i===cardIndex?" active":"");
-    dot.setAttribute("aria-label","Go to slide "+(i+1));
-    dot.addEventListener("click",()=>goToCard(i));
-    dotsWrap.appendChild(dot);
-  }
-}
-function renderCards(){
-  cardsWrap.style.transform="translateX(-"+(cardIndex*100)+"%)";
-  renderDots();
-}
 function renderImages(fade){
   cardData.forEach(c=>{
     if(!c.beforeImg||!c.afterImg||!c.beforeList.length||!c.afterList.length)return;
@@ -786,12 +746,7 @@ function renderImages(fade){
     }
   });
 }
-function goToCard(i){cardIndex=((i%totalCards)+totalCards)%totalCards;renderCards()}
-if(prevBtn)prevBtn.addEventListener("click",()=>goToCard(cardIndex-1));
-if(nextBtn)nextBtn.addEventListener("click",()=>goToCard(cardIndex+1));
-if(totalCards<=1){if(prevBtn)prevBtn.style.display="none";if(nextBtn)nextBtn.style.display="none"}
 renderImages(false);
-renderCards();
 if(subTotal>1){
   setInterval(()=>{
     subIndex=(subIndex+1)%subTotal;
